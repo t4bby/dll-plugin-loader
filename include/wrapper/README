@@ -1,0 +1,4 @@
+A wrapper for d3d9.dll
+============
+
+I've written this for Palworld but you can include this in another project.
