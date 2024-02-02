@@ -17,6 +17,14 @@ C:\Program Files\MyApp\MyApp.exe
 C:\Program Files\MyApp\d3d9.dll
 ```
 
+## Usage
+Put your `.dll` files in the `Plugins` directory.
+Example:
+```
+C:\Program Files\MyApp\Plugins\MyMod1.dll
+C:\Program Files\MyApp\Plugins\MyMod2.dll
+```
+
 ## Building from source
 
 ## Pre-requisites
