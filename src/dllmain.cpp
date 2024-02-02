@@ -43,7 +43,11 @@ bool __stdcall DllMain(HMODULE module, const uint32_t call_reason, [[maybe_unuse
 		std::filesystem::create_directory(plugin_folder);
 
 	// add a grace period when loading the plugins
-	std::this_thread::sleep_for(std::chrono::seconds(5));
+	// Configure the grace period
+	// This implementation stops the main thread for 5 seconds
+	// TODO: Find a better way to implement the grace period
+	// Issue: https://github.com/t4bby/dll-plugin-loader/issues/1
+	// std::this_thread::sleep_for(std::chrono::seconds(5));
 
 	// Load all .dll files in the plugin folder
 	for (const auto& entry : std::filesystem::directory_iterator(plugin_folder))
