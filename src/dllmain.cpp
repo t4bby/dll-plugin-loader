@@ -2,8 +2,13 @@
 #include <Windows.h>
 #include <lazy_importer.h>
 #include <filesystem>
-#include <iostream>
+#include <future>
 
+
+void initialize(const HMODULE module)
+{
+	
+}
 
 /**
  * \brief The entry point of the DLL
@@ -37,6 +42,9 @@ bool __stdcall DllMain(HMODULE module, const uint32_t call_reason, [[maybe_unuse
 	if(!std::filesystem::exists(plugin_folder))
 		std::filesystem::create_directory(plugin_folder);
 
+	// add a grace period when loading the plugins
+	std::this_thread::sleep_for(std::chrono::seconds(5));
+
 	// Load all .dll files in the plugin folder
 	for (const auto& entry : std::filesystem::directory_iterator(plugin_folder))
 	{
@@ -47,4 +55,7 @@ bool __stdcall DllMain(HMODULE module, const uint32_t call_reason, [[maybe_unuse
 		if(dll.ends_with(L".dll"))
 			LI_FN(LoadLibraryW)(dll.c_str());
 	}
+
+	return true;
+	
 }
