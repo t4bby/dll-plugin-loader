@@ -119,7 +119,8 @@
       <ModuleDefinitionFile>$(ProjectDir)include\wrapper\d3d9.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /b /v /y $(OutputPath)$(ProjectName).dll $(OutputPath)d3d9.dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,7 +141,8 @@
       <ModuleDefinitionFile>$(ProjectDir)include\wrapper\d3d9.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /b /v /y $(OutputPath)$(ProjectName).dll $(OutputPath)d3d9.dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
