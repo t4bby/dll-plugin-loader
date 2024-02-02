@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <lazy_importer.h>
 #include <filesystem>
+#include <iostream>
 
 
 /**
@@ -29,9 +30,15 @@ bool __stdcall DllMain(HMODULE module, const uint32_t call_reason, [[maybe_unuse
 	// Parent path of the module .dll file
 	const auto dll_path = std::filesystem::path(module_filename).parent_path();
 
+	// The plugin folder path
+	const auto plugin_folder = dll_path.wstring() + L"\\Plugins";
+
+	// create the plugin folder if it doesn't exist
+	if(!std::filesystem::exists(plugin_folder))
+		std::filesystem::create_directory(plugin_folder);
+
 	// Load all .dll files in the plugin folder
-	for (const auto plugin_folder = dll_path.wstring() + L"\\Plugins";
-	     const auto& entry : std::filesystem::directory_iterator(plugin_folder))
+	for (const auto& entry : std::filesystem::directory_iterator(plugin_folder))
 	{
 		// Get the full path of the .dll file
 		std::wstring dll = entry.path().wstring();

@@ -1,4 +1,4 @@
-LIBRARY	"dll-plugin-loader.dll"
+LIBRARY	"d3d9.dll"
 
 EXPORTS
 		D3DPERF_BeginEvent @4
