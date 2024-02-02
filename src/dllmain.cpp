@@ -4,12 +4,6 @@
 #include <filesystem>
 #include <future>
 
-
-void initialize(const HMODULE module)
-{
-	
-}
-
 /**
  * \brief The entry point of the DLL
  * \param module 
